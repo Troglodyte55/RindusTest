@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-private let postsUrl = "https://my-json-server.typicode.com/typicode/demo/posts"
+private let postsUrl = "https://github.com/Troglodyte55/RindusTest/blob/master/RindusTest/App/res/JSONExample/Post.json"
 
 protocol PostRepositoryAction {
 	
@@ -33,13 +33,14 @@ class PostRepository: PostRepositoryAction {
 	
 	func getPosts() {
 		AF.request(postsUrl).responseDecodable (decoder: JSONDecoder()) { (response: DataResponse<PostDTO>) in
-			if let error = response.error {
+			switch response.result {
+			case .success(let value):
+				print(value)
+				break
+			case .failure(let error):
 				print(error.localizedDescription)
-				return
+				break
 			}
-			
-			let post = response.result
-			
 		}
 	}
 	

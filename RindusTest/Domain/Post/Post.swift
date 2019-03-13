@@ -16,4 +16,8 @@ struct Post {
 	
 	var comments: [Comment]?
 	
+	private enum CodingKeys: String, CodingKey {
+		case id, title, comments
+	}
+	
 }
