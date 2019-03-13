@@ -22,6 +22,8 @@
 		D3E3E3C6223972360018B520 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3E3C5223972360018B520 /* Comment.swift */; };
 		D3E3E3C82239734C0018B520 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3E3C72239734C0018B520 /* PostInteractor.swift */; };
 		D3E3E3CA223973720018B520 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3E3C9223973720018B520 /* PostRepository.swift */; };
+		D3FD574E22398BB700AD9BAA /* Post.json in Resources */ = {isa = PBXBuildFile; fileRef = D3FD574D22398BB700AD9BAA /* Post.json */; };
+		D3FD575022398BCD00AD9BAA /* Comment.json in Resources */ = {isa = PBXBuildFile; fileRef = D3FD574F22398BCD00AD9BAA /* Comment.json */; };
 		DA19B5649C0BBAECAF4391DC /* Pods_RindusTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D74CDFA1DC763EC17171EA0 /* Pods_RindusTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		D3E3E3C5223972360018B520 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D3E3E3C72239734C0018B520 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		D3E3E3C9223973720018B520 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		D3FD574D22398BB700AD9BAA /* Post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Post.json; sourceTree = "<group>"; };
+		D3FD574F22398BCD00AD9BAA /* Comment.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Comment.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,6 @@
 				6DA306B457AFE8909F7420D0 /* Pods-RindusTest.debug.xcconfig */,
 				7F8C399E92A6AE55F67DFC56 /* Pods-RindusTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -181,6 +184,7 @@
 		D3B28DA4223967F800C5AC29 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				D3FD574C22398B9900AD9BAA /* JSONExample */,
 				D3B28D8F2239651B00C5AC29 /* Info.plist */,
 				D3B28D8A2239651B00C5AC29 /* Assets.xcassets */,
 			);
@@ -221,6 +225,15 @@
 				D3E3E3C5223972360018B520 /* Comment.swift */,
 			);
 			path = Comment;
+			sourceTree = "<group>";
+		};
+		D3FD574C22398B9900AD9BAA /* JSONExample */ = {
+			isa = PBXGroup;
+			children = (
+				D3FD574D22398BB700AD9BAA /* Post.json */,
+				D3FD574F22398BCD00AD9BAA /* Comment.json */,
+			);
+			path = JSONExample;
 			sourceTree = "<group>";
 		};
 		F7F64E35D2844485D90ED2B7 /* Frameworks */ = {
@@ -294,6 +307,8 @@
 				D3B28D982239660D00C5AC29 /* PostViewController.xib in Resources */,
 				D3B28D8E2239651B00C5AC29 /* LaunchScreen.storyboard in Resources */,
 				D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */,
+				D3FD574E22398BB700AD9BAA /* Post.json in Resources */,
+				D3FD575022398BCD00AD9BAA /* Comment.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
