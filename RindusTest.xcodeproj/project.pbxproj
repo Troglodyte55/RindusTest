@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D306DBD02240548A00832CD3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306DBCF2240548A00832CD3 /* BaseViewController.swift */; };
 		D3B28D842239651900C5AC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B28D832239651900C5AC29 /* AppDelegate.swift */; };
 		D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B28D8A2239651B00C5AC29 /* Assets.xcassets */; };
 		D3B28D8E2239651B00C5AC29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B28D8C2239651B00C5AC29 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		3D74CDFA1DC763EC17171EA0 /* Pods_RindusTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RindusTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA306B457AFE8909F7420D0 /* Pods-RindusTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RindusTest.debug.xcconfig"; path = "Target Support Files/Pods-RindusTest/Pods-RindusTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7F8C399E92A6AE55F67DFC56 /* Pods-RindusTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RindusTest.release.xcconfig"; path = "Target Support Files/Pods-RindusTest/Pods-RindusTest.release.xcconfig"; sourceTree = "<group>"; };
+		D306DBCF2240548A00832CD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D3B28D802239651900C5AC29 /* RindusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RindusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B28D832239651900C5AC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3B28D8A2239651B00C5AC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +75,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D306DBCC2240535100832CD3 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				D3B28D8F2239651B00C5AC29 /* Info.plist */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		D306DBCD2240535B00832CD3 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				D3B28D8A2239651B00C5AC29 /* Assets.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		D306DBCE2240547B00832CD3 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				D306DBCF2240548A00832CD3 /* BaseViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		D3B28D772239651900C5AC29 = {
 			isa = PBXGroup;
 			children = (
@@ -94,146 +120,147 @@
 		D3B28D822239651900C5AC29 /* RindusTest */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28D9E2239663300C5AC29 /* App */,
-				D3B28D9A2239661500C5AC29 /* BL */,
-				D3B28D992239661100C5AC29 /* UI */,
-				D3E3E3B7223971430018B520 /* Domain */,
+				D3B28DA4223967F800C5AC29 /* res */,
+				D3B28D9E2239663300C5AC29 /* app */,
+				D3B28D9A2239661500C5AC29 /* bl */,
+				D3B28D992239661100C5AC29 /* ui */,
+				D3E3E3B7223971430018B520 /* domain */,
 			);
 			path = RindusTest;
 			sourceTree = "<group>";
 		};
-		D3B28D992239661100C5AC29 /* UI */ = {
+		D3B28D992239661100C5AC29 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28D9D2239662600C5AC29 /* Post */,
+				D306DBCE2240547B00832CD3 /* base */,
+				D3B28D9D2239662600C5AC29 /* post */,
 			);
-			path = UI;
+			path = ui;
 			sourceTree = "<group>";
 		};
-		D3B28D9A2239661500C5AC29 /* BL */ = {
+		D3B28D9A2239661500C5AC29 /* bl */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28D9C2239662000C5AC29 /* Repository */,
-				D3B28D9B2239661900C5AC29 /* Interactor */,
+				D3B28D9C2239662000C5AC29 /* repository */,
+				D3B28D9B2239661900C5AC29 /* interactor */,
 			);
-			path = BL;
+			path = bl;
 			sourceTree = "<group>";
 		};
-		D3B28D9B2239661900C5AC29 /* Interactor */ = {
+		D3B28D9B2239661900C5AC29 /* interactor */ = {
 			isa = PBXGroup;
 			children = (
 				D3E3E3C72239734C0018B520 /* PostInteractor.swift */,
 			);
-			path = Interactor;
+			path = interactor;
 			sourceTree = "<group>";
 		};
-		D3B28D9C2239662000C5AC29 /* Repository */ = {
+		D3B28D9C2239662000C5AC29 /* repository */ = {
 			isa = PBXGroup;
 			children = (
 				D3E3E3C9223973720018B520 /* PostRepository.swift */,
 			);
-			path = Repository;
+			path = repository;
 			sourceTree = "<group>";
 		};
-		D3B28D9D2239662600C5AC29 /* Post */ = {
+		D3B28D9D2239662600C5AC29 /* post */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28DA12239668A00C5AC29 /* Wireframe */,
-				D3B28DA02239668500C5AC29 /* View */,
-				D3B28D9F2239668100C5AC29 /* Presenter */,
+				D3B28DA12239668A00C5AC29 /* wireframe */,
+				D3B28DA02239668500C5AC29 /* view */,
+				D3B28D9F2239668100C5AC29 /* presenter */,
 			);
-			path = Post;
+			path = post;
 			sourceTree = "<group>";
 		};
-		D3B28D9E2239663300C5AC29 /* App */ = {
+		D3B28D9E2239663300C5AC29 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28DA4223967F800C5AC29 /* res */,
+				D306DBCC2240535100832CD3 /* config */,
 				D3B28D832239651900C5AC29 /* AppDelegate.swift */,
 				D3B28D8C2239651B00C5AC29 /* LaunchScreen.storyboard */,
 			);
-			path = App;
+			path = app;
 			sourceTree = "<group>";
 		};
-		D3B28D9F2239668100C5AC29 /* Presenter */ = {
+		D3B28D9F2239668100C5AC29 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
 				D3B28DA2223966D400C5AC29 /* PostPresenter.swift */,
 			);
-			path = Presenter;
+			path = presenter;
 			sourceTree = "<group>";
 		};
-		D3B28DA02239668500C5AC29 /* View */ = {
+		D3B28DA02239668500C5AC29 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				D3E3E3B62239710C0018B520 /* PostCell */,
+				D3E3E3B62239710C0018B520 /* postCell */,
 				D3B28D952239660D00C5AC29 /* PostViewController.swift */,
 				D3B28D962239660D00C5AC29 /* PostViewController.xib */,
 			);
-			path = View;
+			path = view;
 			sourceTree = "<group>";
 		};
-		D3B28DA12239668A00C5AC29 /* Wireframe */ = {
+		D3B28DA12239668A00C5AC29 /* wireframe */ = {
 			isa = PBXGroup;
 			children = (
 				D3B28DA7223968ED00C5AC29 /* PostWireframe.swift */,
 			);
-			path = Wireframe;
+			path = wireframe;
 			sourceTree = "<group>";
 		};
 		D3B28DA4223967F800C5AC29 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				D3FD574C22398B9900AD9BAA /* JSONExample */,
-				D3B28D8F2239651B00C5AC29 /* Info.plist */,
-				D3B28D8A2239651B00C5AC29 /* Assets.xcassets */,
+				D3FD574C22398B9900AD9BAA /* json */,
+				D306DBCD2240535B00832CD3 /* assets */,
 			);
 			path = res;
 			sourceTree = "<group>";
 		};
-		D3E3E3B62239710C0018B520 /* PostCell */ = {
+		D3E3E3B62239710C0018B520 /* postCell */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = PostCell;
+			path = postCell;
 			sourceTree = "<group>";
 		};
-		D3E3E3B7223971430018B520 /* Domain */ = {
+		D3E3E3B7223971430018B520 /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				D3E3E3C0223972170018B520 /* Comment */,
-				D3E3E3B8223971530018B520 /* Post */,
+				D3E3E3C0223972170018B520 /* comment */,
+				D3E3E3B8223971530018B520 /* post */,
 			);
-			path = Domain;
+			path = domain;
 			sourceTree = "<group>";
 		};
-		D3E3E3B8223971530018B520 /* Post */ = {
+		D3E3E3B8223971530018B520 /* post */ = {
 			isa = PBXGroup;
 			children = (
 				D3E3E3B9223971630018B520 /* Post.swift */,
 				D3E3E3BB2239716D0018B520 /* PostVO.swift */,
 				D3E3E3BE2239717B0018B520 /* PostDTO.swift */,
 			);
-			path = Post;
+			path = post;
 			sourceTree = "<group>";
 		};
-		D3E3E3C0223972170018B520 /* Comment */ = {
+		D3E3E3C0223972170018B520 /* comment */ = {
 			isa = PBXGroup;
 			children = (
 				D3E3E3C1223972270018B520 /* CommentDTO.swift */,
 				D3E3E3C32239722F0018B520 /* CommentVO.swift */,
 				D3E3E3C5223972360018B520 /* Comment.swift */,
 			);
-			path = Comment;
+			path = comment;
 			sourceTree = "<group>";
 		};
-		D3FD574C22398B9900AD9BAA /* JSONExample */ = {
+		D3FD574C22398B9900AD9BAA /* json */ = {
 			isa = PBXGroup;
 			children = (
 				D3FD574D22398BB700AD9BAA /* Post.json */,
 				D3FD574F22398BCD00AD9BAA /* Comment.json */,
 			);
-			path = JSONExample;
+			path = json;
 			sourceTree = "<group>";
 		};
 		F7F64E35D2844485D90ED2B7 /* Frameworks */ = {
@@ -366,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D306DBD02240548A00832CD3 /* BaseViewController.swift in Sources */,
 				D3E3E3BC2239716D0018B520 /* PostVO.swift in Sources */,
 				D3E3E3CA223973720018B520 /* PostRepository.swift in Sources */,
 				D3B28DA3223966D400C5AC29 /* PostPresenter.swift in Sources */,

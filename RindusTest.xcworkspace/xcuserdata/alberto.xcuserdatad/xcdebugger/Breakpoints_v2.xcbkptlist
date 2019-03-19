@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RindusTest/BL/Repository/PostRepository.swift"
-            timestampString = "574197037.557966"
+            timestampString = "574639134.493077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "getPosts()"
             landmarkType = "7">
          </BreakpointContent>

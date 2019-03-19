@@ -8,13 +8,15 @@
 
 import UIKit
 
-protocol PostViewControllerProtocol: NSObjectProtocol {
+protocol PostViewControllerProtocol: class {
 	
 	var presenter: PostPresenterAction { get }
+
+	var posts: [PostVO]? { get set }
 	
 }
 
-class PostViewController: UIViewController {
+class PostViewController: BaseViewController {
 
 	var presenter: PostPresenterAction
 	
@@ -29,15 +31,27 @@ class PostViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.presenter.getPosts()
+		presenter.getPosts()
     }
-
+	
 }
 
 extension PostViewController: PostPresenterDelegate {
 	
-	func didPostsLoaded() {
+	func hideLoader() {
+		activityLoader?.stopAnimating()
+	}
+	
+	func showLoader() {
+		activityLoader?.startAnimating()
+	}
+	
+	func showConexionError() {
 		
+	}
+	
+	func loadPosts(_ posts: [PostVO]) {
+		self.posts = posts
 	}
 
 }
