@@ -9,11 +9,11 @@
 import Foundation
 import Alamofire
 
-private let postsUrl = "https://raw.githubusercontent.com/Troglodyte55/RindusTest/master/RindusTest/App/res/JSONExample/Post.json"
+private let postsUrl = "https://raw.githubusercontent.com/Troglodyte55/RindusTest/master/RindusTest/res/json/Post.json"
 
 protocol PostRepositoryAction {
 	
-	var delegate: PostRepositoryDelegate? { get set }
+    init (with delegate: PostRepositoryDelegate)
 	
 	func getPosts()
 	
@@ -33,13 +33,18 @@ class PostRepository: PostRepositoryAction {
 	
 	weak var delegate: PostRepositoryDelegate?
 	
+    required init(with delegate: PostRepositoryDelegate) {
+        self.delegate = delegate
+    }
+    
+    
 	func getPosts() {
 		
 		AF.request(postsUrl).responseDecodable (decoder: JSONDecoder()) { (response: DataResponse<[PostDTO]>) in
 			switch response.result {
 			case .success(let value):
-				self.posts = value.map {
-					Post(from: $0)
+				self.posts = value.map { (postDTO) -> Post in
+					Post(from: postDTO)
 				}
 				self.postsLoaded(error: nil)
 				

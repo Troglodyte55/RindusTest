@@ -13,6 +13,7 @@ class PostWireframe {
 	static func createModule() -> PostViewController {
 		let presenter = PostPresenter()
 		let view = PostViewController(with: presenter)
+        presenter.ui = view
 		return view
 	}
 	

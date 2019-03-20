@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostViewController" customModule="RindusTest" customModuleProvider="target">
             <connections>
                 <outlet property="activityLoader" destination="DYE-N6-tLo" id="51E-UG-gZt"/>
+                <outlet property="tableView" destination="YX0-5C-1Ko" id="vaO-cT-2ZS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

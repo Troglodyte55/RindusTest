@@ -14,4 +14,9 @@ struct PostVO {
 	
 	var title: String?
 	
+    init (with post: Post) {
+        id = post.id
+        title = post.title
+    }
+    
 }

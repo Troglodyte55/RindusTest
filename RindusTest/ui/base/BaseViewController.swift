@@ -12,4 +12,8 @@ class BaseViewController: UIViewController {
 	
 	@IBOutlet weak var activityLoader: UIActivityIndicatorView?
 	
+    func loadStyle() {
+        self.activityLoader?.hidesWhenStopped = true
+    }
+    
 }

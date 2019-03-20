@@ -1,12 +1,32 @@
 [
 	{
 		"id": 1,
-		"body": "some comment",
+		"body": "All hail Joss Whedon, the warrior king of this dizzying, dazzling 3D action epic. 'The Avengers' is 'Transformers' with a brain, a heart and a working sense of humor.",
 		"postId": 1
 	},
 	{
 		"id": 2,
-		"body": "some comment",
+		"body": "Like a superior, state-of-the-art model built from reconstituted parts, Joss Whedon's buoyant, witty and robustly entertaining superhero smash-up is escapism of a sophisticated order.",
 		"postId": 1
-	}
+	},
+    {
+        "id": 3,
+        "body": "The box-office superheroes return, a bit less powerfully. (...) this time the action scenes don't always measure up and some of the characters are left in a kind of dramatic no-man's-land.",
+        "postId": 2
+    },
+    {
+        "id": 4,
+        "body": "The most successful superhero movie of all time gets a super-sized sequel with surprising amounts of soul. (...) Joss Whedon brings a looser, more inventive and stylish touch to this skillful follow-up",
+        "postId": 2
+    },
+    {
+        "id": 5,
+        "body": "You don't have to be a Marvel geek to get with the vibe. In this sequel (...) Joss Whedon achieve world box-office domination, the movie swings for the fences, going darker and deeper...",
+        "postId": 2
+    },
+    {
+        "id": 6,
+        "body": "While it’s hard to beat the wonder of that original 'Avengers' film (...) 'Infinity War' does its best to change the game again. There are unexpected returns, true surprises, real sacrifices and a cliffhanger ending that’s going to freak fans ...",
+        "postId": 3
+    }
 ]

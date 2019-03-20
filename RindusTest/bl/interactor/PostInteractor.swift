@@ -10,6 +10,8 @@ import Foundation
 
 protocol PostInteractorAction {
 	
+    init(with delegate: PostInteractorDelegate)
+    
 	func getPosts()
 	
 }
@@ -26,14 +28,16 @@ class PostInteractor: PostInteractorAction {
 	
 	var delegate: PostInteractorDelegate?
 	
-	var repository: PostRepositoryAction
+    lazy var repository: PostRepositoryAction = {
+        return PostRepository(with: self)
+    }()
 	
-	init() {
-		self.repository = PostRepository()
-	}
+    required init(with delegate: PostInteractorDelegate) {
+        self.delegate = delegate
+    }
 	
 	func getPosts() {
-		self.repository.getPosts()
+		repository.getPosts()
 	}
 	
 }

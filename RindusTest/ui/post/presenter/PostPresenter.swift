@@ -8,14 +8,18 @@
 
 import Foundation
 
+// MARK: - Presenter Action
 protocol PostPresenterAction {
 	
+    var ui: PostPresenterDelegate? { get set }
+    
 	func viewDidLoad()
 	
 	func getPosts()
 	
 }
 
+// MARK: - Presenter Delegate
 protocol PostPresenterDelegate: class {
 	
 	func hideLoader()
@@ -28,21 +32,21 @@ protocol PostPresenterDelegate: class {
 	
 }
 
+// MARK: - Presenter Implementation
 class PostPresenter: PostPresenterAction {
-	
-	var interactor: PostInteractorAction!
-	
-	var ui: PostPresenterDelegate?
-	
-	init() {
-		interactor = PostInteractor()
-	}
+
+    weak var ui: PostPresenterDelegate?
+    
+    lazy var interactor: PostInteractorAction = {
+        return PostInteractor(with: self)
+    }()
 	
 	func viewDidLoad() {
 		guard let ui = ui else {
 			return
 		}
 		ui.showLoader()
+        getPosts()
 	}
 	
 	func getPosts() {
@@ -51,6 +55,7 @@ class PostPresenter: PostPresenterAction {
 	
 }
 
+// MARK: Post Interactor Delegate
 extension PostPresenter: PostInteractorDelegate {
 	
 	func onPostsFailure(error: Error) {
@@ -66,6 +71,10 @@ extension PostPresenter: PostInteractorDelegate {
 			print ("PostPresenter.onPostsLoaded - There are not ui designated")
 			return
 		}
+        let postsVO = posts.map { (post) -> PostVO in
+            return PostVO(with: post)
+        }
+        ui.loadPosts(postsVO)
 		ui.hideLoader()
 	}
 	
