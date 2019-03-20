@@ -13,6 +13,7 @@ class PostDetailWireframe {
     static func createModule(with post: PostVO) -> PostDetailViewController {
         let presenter = PostDetailPresenter(with: post)
         let view = PostDetailViewController(with: presenter)
+        presenter.ui = view
         return view
     }
     

@@ -47,9 +47,12 @@ class PostViewController: BaseViewController, PostViewControllerProtocol {
     
     override func loadStyle() {
         super.loadStyle()
+        title = "MCU"
         tableView.isHidden = true
-        emptyListLabel.font =  UIFont.systemFont(ofSize: 20, weight: .thin)
-        emptyListLabel.textColor = UIColor.lightGray
+        emptyListLabel.font =  UIFont.systemFont(ofSize: 25, weight: .thin)
+        emptyListLabel.numberOfLines = 0
+        emptyListLabel.textAlignment = .center
+        emptyListLabel.textColor = UIColor.darkGray
         emptyListLabel.isHidden = true
         emptyListLabel.text = "An connection error was ocurred. Try it later"
     }
@@ -127,7 +130,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func setup(_ cell: UITableViewCell, post: PostVO) {
-        cell.textLabel?.text = "\(post.id)"
-        cell.detailTextLabel?.text = post.title
+        cell.textLabel?.text = post.title
+        cell.detailTextLabel?.text = post.date
     }
 }

@@ -50,8 +50,10 @@ class PostDetailViewController: BaseViewController, PostDetailViewProtocol {
     
     override func loadStyle() {
         tableView.isHidden = true
-        emptyListLabel.font =  UIFont.systemFont(ofSize: 20, weight: .thin)
-        emptyListLabel.textColor = UIColor.lightGray
+        emptyListLabel.font =  UIFont.systemFont(ofSize: 25, weight: .thin)
+        emptyListLabel.numberOfLines = 0
+        emptyListLabel.textAlignment = .center
+        emptyListLabel.textColor = UIColor.darkGray
         emptyListLabel.isHidden = true
         emptyListLabel.text = "There aren't comments."
     }
