@@ -6,7 +6,7 @@
 //  Copyright © 2019 aluque. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PostInteractorAction {
 	
@@ -26,7 +26,7 @@ protocol PostInteractorDelegate: class {
 
 class PostInteractor: PostInteractorAction {
 	
-	var delegate: PostInteractorDelegate?
+	weak var delegate: PostInteractorDelegate?
 	
     lazy var repository: PostRepositoryAction = {
         return PostRepository(with: self)

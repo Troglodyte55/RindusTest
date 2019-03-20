@@ -13,12 +13,15 @@ struct Post {
 	var id: Int
 	
 	var title: String?
+    
+    var date: String?
 	
 	var comments: [Comment]?
 	
 	init(from dto: PostDTO) {
-		self.id = dto.id
-		self.title = dto.title
+		id = dto.id
+		title = dto.title
+        date = dto.date
 	}
 	
 }

@@ -14,6 +14,7 @@ protocol PostViewControllerProtocol: class {
 	
 }
 
+// MARK: Post View Protocol
 class PostViewController: BaseViewController, PostViewControllerProtocol {
     
     // Properties
@@ -23,6 +24,8 @@ class PostViewController: BaseViewController, PostViewControllerProtocol {
 	
     // Outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var emptyListLabel: UILabel!
     
     // Implementation
 	required init(with presenter: PostPresenterAction) {
@@ -41,9 +44,19 @@ class PostViewController: BaseViewController, PostViewControllerProtocol {
         tableView.dataSource = self
         presenter.viewDidLoad()
     }
+    
+    override func loadStyle() {
+        super.loadStyle()
+        tableView.isHidden = true
+        emptyListLabel.font =  UIFont.systemFont(ofSize: 20, weight: .thin)
+        emptyListLabel.textColor = UIColor.lightGray
+        emptyListLabel.isHidden = true
+        emptyListLabel.text = "An connection error was ocurred. Try it later"
+    }
 	
 }
 
+// MARK: - Presenter Delegate
 extension PostViewController: PostPresenterDelegate {
 	
 	func hideLoader() {
@@ -54,26 +67,27 @@ extension PostViewController: PostPresenterDelegate {
 		activityLoader?.startAnimating()
 	}
 	
-	func showConexionError() {
-		
+	func showConnectionError() {
+        activityLoader?.isHidden = true
+        emptyListLabel.isHidden = false
+        tableView.isHidden = true
 	}
 	
 	func loadPosts(_ posts: [PostVO]) {
 		self.posts = posts
-        tableView.reloadData()
 	}
+    
+    func renderPosts() {
+        activityLoader?.isHidden = true
+        emptyListLabel.isHidden = true
+        tableView.isHidden = false
+        tableView.reloadData()
+    }
 
 }
 
 // MARK: - Table View Handlers
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func getPost(by indexPath: IndexPath) -> PostVO? {
-        guard let posts = posts else {
-            return nil
-        }
-        return posts[indexPath.row]
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -91,9 +105,29 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         guard let post = getPost(by: indexPath) else {
             return cell
         }
-        cell.textLabel?.text = "\(post.id)"
-        cell.detailTextLabel?.text = post.title
+        setup(cell, post: post)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let post = getPost(by: indexPath),
+            let navigationController = self.navigationController else {
+                return
+        }
+        presenter.showDetail(of: post, from: navigationController)
+    }
+    
+    /// Private functions
+    
+    private func getPost(by indexPath: IndexPath) -> PostVO? {
+        guard let posts = posts else {
+            return nil
+        }
+        return posts[indexPath.row]
+    }
+    
+    private func setup(_ cell: UITableViewCell, post: PostVO) {
+        cell.textLabel?.text = "\(post.id)"
+        cell.detailTextLabel?.text = post.title
+    }
 }

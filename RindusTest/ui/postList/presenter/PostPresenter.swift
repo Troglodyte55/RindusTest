@@ -6,7 +6,7 @@
 //  Copyright © 2019 aluque. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Presenter Action
 protocol PostPresenterAction {
@@ -16,19 +16,17 @@ protocol PostPresenterAction {
 	func viewDidLoad()
 	
 	func getPosts()
+    
+    func showDetail(of post: PostVO, from navigationController: UINavigationController)
 	
 }
 
 // MARK: - Presenter Delegate
-protocol PostPresenterDelegate: class {
-	
-	func hideLoader()
-	
-	func showLoader()
-	
-	func showConexionError()
+protocol PostPresenterDelegate: UIProtocol {
 	
 	func loadPosts(_ posts: [PostVO])
+    
+    func renderPosts()
 	
 }
 
@@ -53,6 +51,10 @@ class PostPresenter: PostPresenterAction {
 		interactor.getPosts()
 	}
 	
+    func showDetail(of post: PostVO, from navigationController: UINavigationController) {
+        PostWireframe.navigate(toDetailWith: post, from: navigationController)
+    }
+    
 }
 
 // MARK: Post Interactor Delegate
@@ -64,6 +66,7 @@ extension PostPresenter: PostInteractorDelegate {
 			return
 		}
 		ui.hideLoader()
+        ui.showConnectionError()
 	}
 	
 	func onPostsLoaded(posts: [Post]) {
@@ -71,11 +74,16 @@ extension PostPresenter: PostInteractorDelegate {
 			print ("PostPresenter.onPostsLoaded - There are not ui designated")
 			return
 		}
-        let postsVO = posts.map { (post) -> PostVO in
-            return PostVO(with: post)
-        }
+        let postsVO = getPostsVO(from: posts)
         ui.loadPosts(postsVO)
 		ui.hideLoader()
+        ui.renderPosts()
 	}
+    
+    private func getPostsVO(from posts: [Post]) -> [PostVO] {
+        return posts.map { (post) -> PostVO in
+            return PostVO(with: post)
+        }
+    }
 	
 }

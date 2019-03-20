@@ -16,4 +16,9 @@ struct Comment {
 	
 	var postId: Int
 	
+    init(from dto: CommentDTO) {
+        id = dto.id
+        body = dto.body
+        postId = dto.postId
+    }
 }

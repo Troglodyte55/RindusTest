@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8C8DDBE2242509F002439C8 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDBC2242509F002439C8 /* PostDetailViewController.swift */; };
+		A8C8DDBF2242509F002439C8 /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8C8DDBD2242509F002439C8 /* PostDetailViewController.xib */; };
+		A8C8DDC822425571002439C8 /* PostDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDC722425571002439C8 /* PostDetailPresenter.swift */; };
+		A8C8DDCB22425613002439C8 /* UIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCA22425613002439C8 /* UIProtocol.swift */; };
+		A8C8DDCE224258F4002439C8 /* PostDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCD224258F4002439C8 /* PostDetailWireframe.swift */; };
+		A8C8DDD0224268FA002439C8 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCF224268FA002439C8 /* CommentRepository.swift */; };
 		D306DBD02240548A00832CD3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306DBCF2240548A00832CD3 /* BaseViewController.swift */; };
 		D3B28D842239651900C5AC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B28D832239651900C5AC29 /* AppDelegate.swift */; };
 		D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B28D8A2239651B00C5AC29 /* Assets.xcassets */; };
@@ -34,6 +40,12 @@
 		5DB8277A91433DC8ABABB1B2 /* Pods-RindusTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RindusTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RindusTest/Pods-RindusTest.release.xcconfig"; sourceTree = "<group>"; };
 		6DA306B457AFE8909F7420D0 /* Pods-RindusTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RindusTest.debug.xcconfig"; path = "Target Support Files/Pods-RindusTest/Pods-RindusTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7F8C399E92A6AE55F67DFC56 /* Pods-RindusTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RindusTest.release.xcconfig"; path = "Target Support Files/Pods-RindusTest/Pods-RindusTest.release.xcconfig"; sourceTree = "<group>"; };
+		A8C8DDBC2242509F002439C8 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		A8C8DDBD2242509F002439C8 /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
+		A8C8DDC722425571002439C8 /* PostDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailPresenter.swift; sourceTree = "<group>"; };
+		A8C8DDCA22425613002439C8 /* UIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProtocol.swift; sourceTree = "<group>"; };
+		A8C8DDCD224258F4002439C8 /* PostDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailWireframe.swift; sourceTree = "<group>"; };
+		A8C8DDCF224268FA002439C8 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
 		D306DBCF2240548A00832CD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D3B28D802239651900C5AC29 /* RindusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RindusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B28D832239651900C5AC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,20 +91,86 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A8C8DDBA22424B79002439C8 /* postList */ = {
-			isa = PBXGroup;
-			children = (
-				D3B28D952239660D00C5AC29 /* PostViewController.swift */,
-				D3B28D962239660D00C5AC29 /* PostViewController.xib */,
-			);
-			path = postList;
-			sourceTree = "<group>";
-		};
 		A8C8DDBB22424B8A002439C8 /* postDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A8C8DDC6224250F3002439C8 /* wireframe */,
+				A8C8DDC5224250EE002439C8 /* presenter */,
+				A8C8DDC4224250E3002439C8 /* view */,
 			);
 			path = postDetail;
+			sourceTree = "<group>";
+		};
+		A8C8DDC0224250B2002439C8 /* post */ = {
+			isa = PBXGroup;
+			children = (
+				D3E3E3C9223973720018B520 /* PostRepository.swift */,
+			);
+			path = post;
+			sourceTree = "<group>";
+		};
+		A8C8DDC1224250BC002439C8 /* comment */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8DDCF224268FA002439C8 /* CommentRepository.swift */,
+			);
+			path = comment;
+			sourceTree = "<group>";
+		};
+		A8C8DDC2224250C3002439C8 /* post */ = {
+			isa = PBXGroup;
+			children = (
+				D3E3E3C72239734C0018B520 /* PostInteractor.swift */,
+			);
+			path = post;
+			sourceTree = "<group>";
+		};
+		A8C8DDC3224250CA002439C8 /* comments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = comments;
+			sourceTree = "<group>";
+		};
+		A8C8DDC4224250E3002439C8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8DDBD2242509F002439C8 /* PostDetailViewController.xib */,
+				A8C8DDBC2242509F002439C8 /* PostDetailViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A8C8DDC5224250EE002439C8 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8DDC722425571002439C8 /* PostDetailPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		A8C8DDC6224250F3002439C8 /* wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8DDCD224258F4002439C8 /* PostDetailWireframe.swift */,
+			);
+			path = wireframe;
+			sourceTree = "<group>";
+		};
+		A8C8DDC922425600002439C8 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8DDCA22425613002439C8 /* UIProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		A8C8DDCC2242562F002439C8 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				D306DBCF2240548A00832CD3 /* BaseViewController.swift */,
+			);
+			path = class;
 			sourceTree = "<group>";
 		};
 		D306DBCC2240535100832CD3 /* config */ = {
@@ -114,7 +192,8 @@
 		D306DBCE2240547B00832CD3 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				D306DBCF2240548A00832CD3 /* BaseViewController.swift */,
+				A8C8DDCC2242562F002439C8 /* class */,
+				A8C8DDC922425600002439C8 /* protocol */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -140,11 +219,11 @@
 		D3B28D822239651900C5AC29 /* RindusTest */ = {
 			isa = PBXGroup;
 			children = (
-				D3B28DA4223967F800C5AC29 /* res */,
 				D3B28D9E2239663300C5AC29 /* app */,
 				D3B28D9A2239661500C5AC29 /* bl */,
-				D3B28D992239661100C5AC29 /* ui */,
 				D3E3E3B7223971430018B520 /* domain */,
+				D3B28D992239661100C5AC29 /* ui */,
+				D3B28DA4223967F800C5AC29 /* res */,
 			);
 			path = RindusTest;
 			sourceTree = "<group>";
@@ -153,7 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				D306DBCE2240547B00832CD3 /* base */,
-				D3B28D9D2239662600C5AC29 /* post */,
+				A8C8DDBB22424B8A002439C8 /* postDetail */,
+				D3B28D9D2239662600C5AC29 /* postList */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -170,7 +250,8 @@
 		D3B28D9B2239661900C5AC29 /* interactor */ = {
 			isa = PBXGroup;
 			children = (
-				D3E3E3C72239734C0018B520 /* PostInteractor.swift */,
+				A8C8DDC3224250CA002439C8 /* comments */,
+				A8C8DDC2224250C3002439C8 /* post */,
 			);
 			path = interactor;
 			sourceTree = "<group>";
@@ -178,19 +259,20 @@
 		D3B28D9C2239662000C5AC29 /* repository */ = {
 			isa = PBXGroup;
 			children = (
-				D3E3E3C9223973720018B520 /* PostRepository.swift */,
+				A8C8DDC1224250BC002439C8 /* comment */,
+				A8C8DDC0224250B2002439C8 /* post */,
 			);
 			path = repository;
 			sourceTree = "<group>";
 		};
-		D3B28D9D2239662600C5AC29 /* post */ = {
+		D3B28D9D2239662600C5AC29 /* postList */ = {
 			isa = PBXGroup;
 			children = (
 				D3B28DA12239668A00C5AC29 /* wireframe */,
-				D3B28DA02239668500C5AC29 /* view */,
 				D3B28D9F2239668100C5AC29 /* presenter */,
+				D3B28DA02239668500C5AC29 /* view */,
 			);
-			path = post;
+			path = postList;
 			sourceTree = "<group>";
 		};
 		D3B28D9E2239663300C5AC29 /* app */ = {
@@ -214,8 +296,8 @@
 		D3B28DA02239668500C5AC29 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A8C8DDBB22424B8A002439C8 /* postDetail */,
-				A8C8DDBA22424B79002439C8 /* postList */,
+				D3B28D952239660D00C5AC29 /* PostViewController.swift */,
+				D3B28D962239660D00C5AC29 /* PostViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -344,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3B28D982239660D00C5AC29 /* PostViewController.xib in Resources */,
+				A8C8DDBF2242509F002439C8 /* PostDetailViewController.xib in Resources */,
 				D3B28D8E2239651B00C5AC29 /* LaunchScreen.storyboard in Resources */,
 				D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */,
 				D3FD574E22398BB700AD9BAA /* Post.json in Resources */,
@@ -406,6 +489,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D306DBD02240548A00832CD3 /* BaseViewController.swift in Sources */,
+				A8C8DDBE2242509F002439C8 /* PostDetailViewController.swift in Sources */,
+				A8C8DDC822425571002439C8 /* PostDetailPresenter.swift in Sources */,
 				D3E3E3BC2239716D0018B520 /* PostVO.swift in Sources */,
 				D3E3E3CA223973720018B520 /* PostRepository.swift in Sources */,
 				D3B28DA3223966D400C5AC29 /* PostPresenter.swift in Sources */,
@@ -414,10 +499,13 @@
 				D3B28D972239660D00C5AC29 /* PostViewController.swift in Sources */,
 				D3B28DA8223968ED00C5AC29 /* PostWireframe.swift in Sources */,
 				D3E3E3C6223972360018B520 /* Comment.swift in Sources */,
+				A8C8DDD0224268FA002439C8 /* CommentRepository.swift in Sources */,
 				D3E3E3C2223972270018B520 /* CommentDTO.swift in Sources */,
 				D3B28D842239651900C5AC29 /* AppDelegate.swift in Sources */,
 				D3E3E3BA223971630018B520 /* Post.swift in Sources */,
 				D3E3E3C42239722F0018B520 /* CommentVO.swift in Sources */,
+				A8C8DDCE224258F4002439C8 /* PostDetailWireframe.swift in Sources */,
+				A8C8DDCB22425613002439C8 /* UIProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

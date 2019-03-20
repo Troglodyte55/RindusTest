@@ -13,10 +13,13 @@ struct PostVO {
 	var id: Int
 	
 	var title: String?
+    
+    var date: String?
 	
     init (with post: Post) {
         id = post.id
         title = post.title
+        date = post.date
     }
     
 }

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		guard let window = window else {
 			return false
 		}
-		window.rootViewController = PostWireframe.createModule()
+		window.rootViewController = PostWireframe.createModuleWithNavigation()
 		window.makeKeyAndVisible()
 		
 		return true

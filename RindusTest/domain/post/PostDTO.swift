@@ -13,5 +13,7 @@ struct PostDTO: Codable {
 	var id: Int
 	
 	var title: String?
+    
+    var date: String?
 	
 }

@@ -6,13 +6,15 @@
 //  Copyright © 2019 aluque. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
 private let postsUrl = "https://raw.githubusercontent.com/Troglodyte55/RindusTest/master/RindusTest/res/json/Post.json"
 
 protocol PostRepositoryAction {
 	
+    var delegate: PostRepositoryDelegate? { get set }
+    
     init (with delegate: PostRepositoryDelegate)
 	
 	func getPosts()
@@ -39,11 +41,13 @@ class PostRepository: PostRepositoryAction {
     
     
 	func getPosts() {
-		
-		AF.request(postsUrl).responseDecodable (decoder: JSONDecoder()) { (response: DataResponse<[PostDTO]>) in
+		AF.request(postsUrl).responseDecodable(decoder: JSONDecoder()) { [weak self] (response: DataResponse<[PostDTO]>) in
+            guard let self = self else {
+                return
+            }
 			switch response.result {
 			case .success(let value):
-				self.posts = value.map { (postDTO) -> Post in
+                self.posts = value.map { (postDTO: PostDTO) -> Post in
 					Post(from: postDTO)
 				}
 				self.postsLoaded(error: nil)
