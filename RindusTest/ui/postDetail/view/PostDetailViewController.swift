@@ -97,7 +97,19 @@ extension PostDetailViewController: PostDetailPresenterDelegate {
 
 // MARK: - Table View Handlers
 extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
-    
+	
+	private func regiterCells() {
+		let commentCell = UINib(nibName: "PostCommentTableViewCell", bundle: nil)
+		tableView.register(commentCell, forCellReuseIdentifier: PostCommentTableViewCell.identifier)
+	}
+	
+	private func getComment(by indexPath: IndexPath) -> CommentVO? {
+		guard let comments = comments else {
+			return nil
+		}
+		return comments[indexPath.row]
+	}
+	
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -110,7 +122,11 @@ extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+		guard let comment = getComment(by: indexPath) else {
+			return UITableViewCell()
+		}
+		let cell = tableView.dequeueReusableCell(withIdentifier: PostCommentTableViewCell.identifier, for: indexPath) as! PostCommentTableViewCell
+		cell.loadCell(with: comment)
         return cell
     }
     

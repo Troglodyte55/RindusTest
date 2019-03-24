@@ -13,6 +13,8 @@
 		A8C8DDCB22425613002439C8 /* UIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCA22425613002439C8 /* UIProtocol.swift */; };
 		A8C8DDCE224258F4002439C8 /* PostDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCD224258F4002439C8 /* PostDetailWireframe.swift */; };
 		A8C8DDD0224268FA002439C8 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8DDCF224268FA002439C8 /* CommentRepository.swift */; };
+		D3015799224833C500073E9B /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3015797224833C500073E9B /* PostCommentTableViewCell.swift */; };
+		D301579A224833C500073E9B /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3015798224833C500073E9B /* PostCommentTableViewCell.xib */; };
 		D306DBD02240548A00832CD3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306DBCF2240548A00832CD3 /* BaseViewController.swift */; };
 		D3B28D842239651900C5AC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B28D832239651900C5AC29 /* AppDelegate.swift */; };
 		D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B28D8A2239651B00C5AC29 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		A8C8DDCA22425613002439C8 /* UIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProtocol.swift; sourceTree = "<group>"; };
 		A8C8DDCD224258F4002439C8 /* PostDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailWireframe.swift; sourceTree = "<group>"; };
 		A8C8DDCF224268FA002439C8 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
+		D3015797224833C500073E9B /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		D3015798224833C500073E9B /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D306DBCF2240548A00832CD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D3B28D802239651900C5AC29 /* RindusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RindusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B28D832239651900C5AC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		A8C8DDC4224250E3002439C8 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				D30157922248334900073E9B /* cell */,
 				A8C8DDBD2242509F002439C8 /* PostDetailViewController.xib */,
 				A8C8DDBC2242509F002439C8 /* PostDetailViewController.swift */,
 			);
@@ -171,6 +176,15 @@
 				D306DBCF2240548A00832CD3 /* BaseViewController.swift */,
 			);
 			path = class;
+			sourceTree = "<group>";
+		};
+		D30157922248334900073E9B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				D3015797224833C500073E9B /* PostCommentTableViewCell.swift */,
+				D3015798224833C500073E9B /* PostCommentTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		D306DBCC2240535100832CD3 /* config */ = {
@@ -431,6 +445,7 @@
 				D3B28D8B2239651B00C5AC29 /* Assets.xcassets in Resources */,
 				D3FD574E22398BB700AD9BAA /* Post.json in Resources */,
 				D3FD575022398BCD00AD9BAA /* Comment.json in Resources */,
+				D301579A224833C500073E9B /* PostCommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +514,7 @@
 				D3B28D972239660D00C5AC29 /* PostViewController.swift in Sources */,
 				D3B28DA8223968ED00C5AC29 /* PostWireframe.swift in Sources */,
 				D3E3E3C6223972360018B520 /* Comment.swift in Sources */,
+				D3015799224833C500073E9B /* PostCommentTableViewCell.swift in Sources */,
 				A8C8DDD0224268FA002439C8 /* CommentRepository.swift in Sources */,
 				D3E3E3C2223972270018B520 /* CommentDTO.swift in Sources */,
 				D3B28D842239651900C5AC29 /* AppDelegate.swift in Sources */,

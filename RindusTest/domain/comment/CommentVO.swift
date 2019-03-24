@@ -10,6 +10,6 @@ import Foundation
 
 struct CommentVO {
 	
-	var body: String?
+	var body: String
 	
 }
