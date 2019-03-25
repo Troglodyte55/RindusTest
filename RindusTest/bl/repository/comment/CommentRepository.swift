@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-private let commentsUrl = "https://raw.githubusercontent.com/Troglodyte55/RindusTest/master/RindusTest/res/json/Comment.json"
+private let commentsUrl = "https://raw.githubusercontent.com/AlbertoLF/RindusTest/master/RindusTest/res/json/Comment.json"
 
 protocol CommentRepositoryAction {
     

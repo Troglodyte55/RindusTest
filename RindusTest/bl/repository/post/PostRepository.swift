@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-private let postsUrl = "https://raw.githubusercontent.com/Troglodyte55/RindusTest/master/RindusTest/res/json/Post.json"
+private let postsUrl = "https://raw.githubusercontent.com/AlbertoLF/RindusTest/master/RindusTest/res/json/Post.json"
 
 protocol PostRepositoryAction {
 	
