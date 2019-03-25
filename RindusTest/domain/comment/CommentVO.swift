@@ -10,6 +10,14 @@ import Foundation
 
 struct CommentVO {
 	
-	var body: String
+    let body: String
 	
+    init(from comment: Comment) {
+        guard let body = comment.body else {
+            self.body = ""
+            return
+        }
+        self.body = body
+    }
+    
 }

@@ -10,16 +10,24 @@ import Foundation
 
 struct PostVO {
 	
-	var id: Int
+	let id: Int
 	
-	var title: String?
+    let title: String
     
-    var date: String?
+    let date: String
 	
     init (with post: Post) {
         id = post.id
-        title = post.title
-        date = post.date
+        if let postTitle = post.title {
+            title = postTitle
+        } else {
+            title = "Title unknown"
+        }
+        if let postDate = post.date {
+            date = postDate
+        } else {
+            date = "Date unknown"
+        }
     }
     
 }

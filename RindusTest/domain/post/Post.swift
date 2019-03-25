@@ -23,5 +23,11 @@ struct Post {
 		title = dto.title
         date = dto.date
 	}
+    
+    init (from vo: PostVO) {
+        id = vo.id
+        title = vo.title
+        date = vo.date
+    }
 	
 }

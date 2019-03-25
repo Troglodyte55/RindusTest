@@ -92,9 +92,31 @@ extension PostViewController: PostPresenterDelegate {
 // MARK: - Table View Handlers
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
+    /// Private functions
+    
+    private func getPost(by indexPath: IndexPath) -> PostVO? {
+        guard let posts = posts else {
+            return nil
+        }
+        return posts[indexPath.row]
+    }
+    
+    private func setup(_ cell: UITableViewCell, post: PostVO) {
+        cell.textLabel?.text = post.title
+        cell.detailTextLabel?.text = post.date
+    }
+    
+    /// Sections
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    /// Rows
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let posts = posts else {
@@ -118,19 +140,5 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
                 return
         }
         presenter.showDetail(of: post, from: navigationController)
-    }
-    
-    /// Private functions
-    
-    private func getPost(by indexPath: IndexPath) -> PostVO? {
-        guard let posts = posts else {
-            return nil
-        }
-        return posts[indexPath.row]
-    }
-    
-    private func setup(_ cell: UITableViewCell, post: PostVO) {
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.date
     }
 }

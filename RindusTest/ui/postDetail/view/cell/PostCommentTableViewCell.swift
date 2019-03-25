@@ -23,6 +23,13 @@ class PostCommentTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
+        loadStyle()
+    }
+    
+    private func loadStyle() {
+        commentLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        commentLabel.textColor = .darkGray
+        commentLabel.numberOfLines = 0
     }
 	
 	func loadCell(with comment: CommentVO) {

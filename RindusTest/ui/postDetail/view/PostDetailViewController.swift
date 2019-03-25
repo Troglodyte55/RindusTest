@@ -12,6 +12,8 @@ protocol PostDetailViewProtocol: class {
     
     var comments: [CommentVO]? { get set }
     
+    init(with presenter: PostDetailPresenterAction)
+    
 }
 
 // MARK: - PostDetail Protocol
@@ -31,7 +33,7 @@ class PostDetailViewController: BaseViewController, PostDetailViewProtocol {
     
     /// Implementation
     
-    init(with presenter: PostDetailPresenterAction) {
+    required init(with presenter: PostDetailPresenterAction) {
         self.presenter = presenter
         super.init(nibName: "PostDetailViewController", bundle: nil)
     }
@@ -44,26 +46,32 @@ class PostDetailViewController: BaseViewController, PostDetailViewProtocol {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        registerCells()
         loadStyle()
         presenter.viewDidLoad()
     }
     
     override func loadStyle() {
+        super.loadStyle()
         tableView.isHidden = true
-        emptyListLabel.font =  UIFont.systemFont(ofSize: 25, weight: .thin)
+        tableView.allowsSelection = false
+        emptyListLabel.font =  .systemFont(ofSize: 25, weight: .medium)
         emptyListLabel.numberOfLines = 0
         emptyListLabel.textAlignment = .center
-        emptyListLabel.textColor = UIColor.darkGray
+        emptyListLabel.textColor = .lightGray
         emptyListLabel.isHidden = true
         emptyListLabel.text = "There aren't comments."
+        datePostLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        datePostLabel.textColor = .darkGray
     }
 
 }
 
 extension PostDetailViewController: PostDetailPresenterDelegate {
     
-    func setTitle(_ title: String) {
-        self.title = title
+    func setPostInfo(_ post: PostVO) {
+        title = post.title
+        datePostLabel.text = post.date
     }
     
     func loadComments(_ comments: [CommentVO]) {
@@ -98,7 +106,9 @@ extension PostDetailViewController: PostDetailPresenterDelegate {
 // MARK: - Table View Handlers
 extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
 	
-	private func regiterCells() {
+    /// Private functions
+    
+	private func registerCells() {
 		let commentCell = UINib(nibName: "PostCommentTableViewCell", bundle: nil)
 		tableView.register(commentCell, forCellReuseIdentifier: PostCommentTableViewCell.identifier)
 	}
@@ -110,15 +120,39 @@ extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
 		return comments[indexPath.row]
 	}
 	
+    /// Sections
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Comments"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    /// Rows
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let comments = comments else {
             return 0
         }
         return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 25
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

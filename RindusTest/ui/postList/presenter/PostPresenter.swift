@@ -60,18 +60,18 @@ class PostPresenter: PostPresenterAction {
 // MARK: Post Interactor Delegate
 extension PostPresenter: PostInteractorDelegate {
 	
-	func onPostsFailure(error: Error) {
+	func onPostsLoadedFailure(error: Error) {
 		guard let ui = ui else {
-			print ("PostPresenter.onPostsFailure - There are not ui designated")
+			print("PostPresenter.onPostsFailure - There are not ui assigned")
 			return
 		}
 		ui.hideLoader()
         ui.showConnectionError()
 	}
 	
-	func onPostsLoaded(posts: [Post]) {
+	func onPostsLoadedSuccess(posts: [Post]) {
 		guard let ui = ui else {
-			print ("PostPresenter.onPostsLoaded - There are not ui designated")
+			print("PostPresenter.onPostsLoaded - There are not ui assigned")
 			return
 		}
         let postsVO = getPostsVO(from: posts)

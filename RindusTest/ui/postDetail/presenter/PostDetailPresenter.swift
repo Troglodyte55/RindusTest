@@ -24,7 +24,7 @@ protocol PostDetailPresenterAction {
 // MARK: - Post Detail Delegate
 protocol PostDetailPresenterDelegate: UIProtocol {
     
-    func setTitle(_ title: String)
+    func setPostInfo(_ post: PostVO)
     
     func loadComments(_ comments: [CommentVO])
     
@@ -37,6 +37,10 @@ class PostDetailPresenter: PostDetailPresenterAction {
     
     weak var ui: PostDetailPresenterDelegate?
     
+    private lazy var interactor: CommentInteractorAction = {
+        return CommentInteractor(with: self)
+    }()
+    
     var post: PostVO
     
     required init(with post: PostVO) {
@@ -47,15 +51,52 @@ class PostDetailPresenter: PostDetailPresenterAction {
         guard let ui = ui else {
             return
         }
-        if let title = post.title {
-            ui.setTitle(title)
-        }
+        ui.setPostInfo(post)
         ui.showLoader()
         getComments(from: post)
     }
     
     func getComments(from post: PostVO) {
-        print ("PostPresenter.getComments - There are not implemented")
+        interactor.getComments(by: Post(from: post))
+    }
+    
+}
+
+extension PostDetailPresenter: CommentInteractorDelegate {
+    
+    func onCommentsLoadedFailure(error: Error) {
+        guard let ui = ui else {
+            print("PostDetailPresenter.onCommentsLoadedFailure - There are not ui assigned")
+            return
+        }
+        ui.hideLoader()
+        ui.showConnectionError()
+    }
+    
+    func onCommentsLoadedSuccess(comments: [Comment]) {
+        guard let ui = ui else {
+            print("PostDetailPresenter.onCommentsLoadedSuccess - There are not ui assigned")
+            return
+        }
+        let validComments = getCommentsVO(from: comments)
+        ui.loadComments(validComments)
+        ui.hideLoader()
+        if validComments.count == 0 {
+            ui.showConnectionError()
+        } else {
+            ui.renderComments()
+        }
+        
+    }
+    
+    private func getCommentsVO(from comments: [Comment]) -> [CommentVO] {
+        return comments
+            .filter { comment in
+                return comment.body != nil
+            }
+            .map { (comment: Comment) in
+                return CommentVO(from: comment)
+        }
     }
     
 }

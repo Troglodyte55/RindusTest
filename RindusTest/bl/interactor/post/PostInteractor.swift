@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Post Interactor Action
 protocol PostInteractorAction {
 	
     init(with delegate: PostInteractorDelegate)
@@ -16,14 +17,16 @@ protocol PostInteractorAction {
 	
 }
 
+// MARK: - Post Interactor Delegate
 protocol PostInteractorDelegate: class {
 	
-	func onPostsLoaded(posts: [Post])
+	func onPostsLoadedSuccess(posts: [Post])
 	
-	func onPostsFailure(error: Error)
+	func onPostsLoadedFailure(error: Error)
 	
 }
 
+// MARK: - Post Interactor Implementation
 class PostInteractor: PostInteractorAction {
 	
 	weak var delegate: PostInteractorDelegate?
@@ -42,22 +45,23 @@ class PostInteractor: PostInteractorAction {
 	
 }
 
+// MARK: - Post Repository Delegate implementation
 extension PostInteractor: PostRepositoryDelegate {
 	
 	func didPostsLoadedFailure(error: Error) {
 		guard let delegate = delegate else {
-			print ("PostInteractor.didPostsLoadedFailure - There are not delegate designated")
+			print ("PostInteractor.didPostsLoadedFailure - There are not delegate assigned")
 			return
 		}
-		delegate.onPostsFailure(error: error)
+		delegate.onPostsLoadedFailure(error: error)
 	}
 	
 	func didPostsLoadedSuccess(posts: [Post]) {
 		guard let delegate = delegate else {
-			print ("PostInteractor.didPostsLoadedSuccess - There are not delegate designated")
+			print ("PostInteractor.didPostsLoadedSuccess - There are not delegate assigned")
 			return
 		}
-		delegate.onPostsLoaded(posts: posts)
+		delegate.onPostsLoadedSuccess(posts: posts)
 	}
 	
 }

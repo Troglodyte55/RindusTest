@@ -60,7 +60,7 @@ class PostRepository: PostRepositoryAction {
 	
 	private func postsLoaded(error: Error?) {
 		guard let delegate = delegate else {
-			print ("PostRepository - There are not delegate designated")
+			print ("PostRepository - There are not delegate assigned")
 			return
 		}
 		if let error = error {
